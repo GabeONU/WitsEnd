@@ -1,9 +1,9 @@
 public class Wagon {
     
-    //speed changing stuff
-    public static final int NORMAL_SPEED_MODIFIER = 1;
-    public static final int STRENUOUS_SPEED_MODIFIER = 2;
-    public static final int GRUELING_SPEED_MODIFIER = 3;
+    //speed changing stuff in rate of miles per hour
+    public static final int NORMAL_SPEED_MODIFIER = 20;
+    public static final int STRENUOUS_SPEED_MODIFIER = 30;
+    public static final int GRUELING_SPEED_MODIFIER = 40;
 
     private int currentSpeedModifier;
 
