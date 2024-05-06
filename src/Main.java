@@ -11,6 +11,7 @@ import javax.swing.Timer;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class Main {
 
@@ -88,6 +89,24 @@ public class Main {
 	}
 	
 	private void gameLoop() {
+
+		JPanel forground = new JPanel();
+		forground.setOpaque(false);
+		forground.setBounds(0, 0, 900, 600);
+		frmOregonTrail.add(forground);
+
+		JPanel midgound = new JPanel();
+		midgound.setOpaque(false);
+		midgound.setBounds(0, 0, 900, 600);
+		frmOregonTrail.add(midgound);
+
+		JPanel background = new JPanel();
+		background.setOpaque(false);
+		background.setBounds(0, 0, 900, 600);
+		frmOregonTrail.add(background);
+
+
+
 		Timer timer = new Timer(41, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -102,20 +121,23 @@ public class Main {
         			System.out.println("Words");
 				}
             	
+				if(secondCount %5 == 0){
+					//Random Event Happens Here
+				}
             	
             	
     			for(int i = 0; i < allLabels.size(); i++) {
         			if(allLabels.get(i).getName().equals("for")) {
 						allLabels.get(i).setLayout(null);
-						frmOregonTrail.add(allLabels.get(i));
+						forground.add(allLabels.get(i));
         			}
         			if(allLabels.get(i).getName().equals("mid")) {
 						allLabels.get(i).setLayout(null);
-						frmOregonTrail.add(allLabels.get(i));
+						midgound.add(allLabels.get(i));
         			}
         			if(allLabels.get(i).getName().equals("bac")) {
 						allLabels.get(i).setLayout(null);
-						frmOregonTrail.add(allLabels.get(i));
+						background.add(allLabels.get(i));
         			} 
 
         			
