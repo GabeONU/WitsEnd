@@ -16,7 +16,8 @@ public class Main {
 
 	private  JFrame frmOregonTrail;
 	
-	
+	private static CSVReader csvRead = new CSVReader();
+
 	private static LabelReader lblMake = new LabelReader();
 	public static int miliSecondCound = 0;
 	public static int secondCount = 0;
