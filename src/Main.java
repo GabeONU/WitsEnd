@@ -14,6 +14,8 @@ public class Main {
     public static int secondCount = 0;
     private static List<JLabel> allLabels = new ArrayList<>();
 
+	private static boolean traveling = true;
+
     private Store store;
     private Person player;
 
@@ -59,8 +61,13 @@ public class Main {
         lblMoney.setBounds(29, 486, 179, 16);
         frmOregonTrail.getContentPane().add(lblMoney);
 
-        JButton btnState = new JButton("Start/ Stop");
-        btnState.setBounds(220, 412, 117, 29);
+        JButton btnState = new JButton("Pause/ Resume");
+		btnState.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				traveling = !traveling;
+			}
+		});
+        btnState.setBounds(220, 412, 137, 29);
         frmOregonTrail.getContentPane().add(btnState);
 
         JButton btnStore = new JButton("Store");
@@ -104,6 +111,8 @@ public class Main {
         Timer timer = new Timer(41, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+				if(traveling == true){
                 miliSecondCound++;
                 if (miliSecondCound >= 24) {
                     secondCount++;
@@ -146,6 +155,8 @@ public class Main {
 
                 }
             }
+		}
+	
         });
 
         timer.start(); // Start the timer
