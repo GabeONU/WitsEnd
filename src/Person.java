@@ -7,7 +7,7 @@ public class Person {
 
     public Person() {
         inventory = new ArrayList<>();
-        money = 100; // Initial money
+        money = 800; // Initial money
     }
 
     public List<Item> getInventory() {

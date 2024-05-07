@@ -32,6 +32,8 @@ public class Main {
 
     public Main() {
         initialize();
+        // Initialize the store object
+        this.store = new Store();
     }
 
     private void initialize() {
@@ -73,13 +75,10 @@ public class Main {
         gameLoop();
     }
 
-	private void openStore() {
-		Store store = new Store(); // Instantiate the store
-		Storepopup storePopup = new Storepopup(store, player); // Create the store popup window
-		storePopup.setVisible(true); // Display the store popup window
-	}
-	
-	
+    private void openStore() {
+        Storepopup storePopup = new Storepopup(store, player);
+        storePopup.setVisible(true);
+    }
 
     private void gameLoop() {
         Timer timer = new Timer(41, new ActionListener() {

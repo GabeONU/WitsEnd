@@ -1,16 +1,16 @@
-Bedroll,15
-Blacksmithing Tools,200
-Books,75
-Medicine,10
-Cast Iron Stove,300
-Chair,20
-Cookware & Eating Utensils,75
-Granny's Clock,15
-Gun Making Tools,200
-Keepsakes,40
-Lead Shot,25
-Mirror,15
-Gunpower,80
-Tent & Gear,150
-Tools,50
-Toys,15
+Bedroll,15,5
+Blacksmithing Tools,200,10
+Books,75,3
+Medicine,10,1
+Cast Iron Stove,300,20
+Chair,20,8
+Cookware & Eating Utensils,75,4
+Granny's Clock,15,3
+Gun Making Tools,200,12
+Keepsakes,40,2
+Lead Shot,25,6
+Mirror,15,2
+Gunpowder,80,5
+Tent & Gear,150,15
+Tools,50,7
+Toys,15,1
