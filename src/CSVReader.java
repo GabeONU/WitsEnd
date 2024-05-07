@@ -19,7 +19,7 @@ public class CSVReader {
                     String itemName = parts[0].trim();
                     int itemPrice = Integer.parseInt(parts[1].trim());
                     // Create a new Item object and add it to the list
-                    Item item = new Item(itemName, itemPrice, 0, 0);
+                    Item item = new Item(itemName, itemPrice, 0);
                     items.add(item);
                 } else {
                     System.err.println("Invalid line in CSV: " + line);

@@ -13,12 +13,14 @@ public class Main {
     public static int miliSecondCound = 0;
     public static int secondCount = 0;
     private static List<JLabel> allLabels = new ArrayList<>();
-	private static Wagon wagon = new Wagon(5);
+    private static Wagon wagon = new Wagon(5);
 
-	private static boolean traveling = true;
+    private static boolean traveling = true;
 
-	private static MyLabel lblFood = new MyLabel("Pounds of Food:");
-
+    private static MyLabel lblFood = new MyLabel("Pounds of Food:");
+    private static MyLabel lblDays = new MyLabel("Number of Days: ");
+    private static MyLabel lblHealth = new MyLabel("Party Health:  ");
+    private static MyLabel lblMoney = new MyLabel("Party Money:");
 
     private Store store;
     private Person player;
@@ -37,9 +39,14 @@ public class Main {
     }
 
     public Main() {
+        player = new Person(800); // Initialize the player object with 800 money
+        wagon = new Wagon(2400); // Initialize the wagon object with 2400 pounds of food
         initialize();
     }
+    
+    
 
+    
     private void initialize() {
         frmOregonTrail = new JFrame();
         frmOregonTrail.setTitle("Oregon Trail");
@@ -47,27 +54,24 @@ public class Main {
         frmOregonTrail.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frmOregonTrail.getContentPane().setLayout(null);
 
-        MyLabel lblDays = new MyLabel("Number of Days: ");
         lblDays.setBounds(29, 417, 179, 16);
         frmOregonTrail.getContentPane().add(lblDays);
 
-        MyLabel lblHealth = new MyLabel("Party Health:  ");
         lblHealth.setBounds(29, 440, 179, 16);
         frmOregonTrail.getContentPane().add(lblHealth);
 
         lblFood.setBounds(29, 462, 179, 16);
         frmOregonTrail.getContentPane().add(lblFood);
 
-		MyLabel lblMoney = new MyLabel("Party Money:");
         lblMoney.setBounds(29, 486, 179, 16);
         frmOregonTrail.getContentPane().add(lblMoney);
 
         JButton btnState = new JButton("Pause/ Resume");
-		btnState.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				traveling = !traveling;
-			}
-		});
+        btnState.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                traveling = !traveling;
+            }
+        });
         btnState.setBounds(220, 412, 137, 29);
         frmOregonTrail.getContentPane().add(btnState);
 
@@ -78,17 +82,16 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 openStore();
             }
-            
         });
 
         JLabel lblStats = new JLabel("Stats:");
         lblStats.setBounds(51, 389, 61, 16);
         frmOregonTrail.getContentPane().add(lblStats);
-       
+
         JButton SpeedIncrease = new JButton("Speed Increase");
         SpeedIncrease.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               
+
             }
         });
         SpeedIncrease.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 13));
@@ -98,34 +101,34 @@ public class Main {
         JButton SpeedDecrease = new JButton("Speed Increase");
         SpeedDecrease.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               
-            }
-        });
-        
-        JLabel SpeedRateDisplay = new JLabel("Speed Rate: "/* + wag.getCurrentSpeedModifier()*/);
-        SpeedRateDisplay.setBounds(520, 440, 170, 29);
-        frmOregonTrail.getContentPane().add(SpeedRateDisplay);
-        
-        SpeedDecrease.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 13));
-        SpeedDecrease.setBounds(520, 470, 170, 29);
-        frmOregonTrail.getContentPane().add(SpeedDecrease);
-        
-        JButton foodConsumptionIncrease = new JButton("Consumption Increase");
-        foodConsumptionIncrease.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-        
+
             }
         });
 
-        
+        JLabel SpeedRateDisplay = new JLabel("Speed Rate: "/* + wag.getCurrentSpeedModifier()*/);
+        SpeedRateDisplay.setBounds(520, 440, 170, 29);
+        frmOregonTrail.getContentPane().add(SpeedRateDisplay);
+
+        SpeedDecrease.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 13));
+        SpeedDecrease.setBounds(520, 470, 170, 29);
+        frmOregonTrail.getContentPane().add(SpeedDecrease);
+
+        JButton foodConsumptionIncrease = new JButton("Consumption Increase");
+        foodConsumptionIncrease.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+
         foodConsumptionIncrease.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 13));
         foodConsumptionIncrease.setBounds(715, 412, 170, 29);
         frmOregonTrail.getContentPane().add(foodConsumptionIncrease);
-      
+
         JButton foodConsumptionDecrease = new JButton("Consumption Decrease");
         foodConsumptionDecrease.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-        
+
             }
         });
 
@@ -138,85 +141,84 @@ public class Main {
         frmOregonTrail.getContentPane().add(foodConsumptionDecrease);
 
         gameLoop();
+    
     }
 
-	private void openStore() {
-		Store store = new Store(); // Instantiate the store
-		Storepopup storePopup = new Storepopup(store, player); // Create the store popup window
-		storePopup.setVisible(true); // Display the store popup window
-	}
-	
-	
+    private void openStore() {
+        store = new Store(); // Instantiate the store
+        Storepopup storePopup = new Storepopup(store, player); // Create the store popup window
+        storePopup.setVisible(true); // Display the store popup window
+    }
+
 
     private void gameLoop() {
 
-		JPanel forPanel = new JPanel();
-		forPanel.setOpaque(false);
-		forPanel.setBounds(0, 0, 900, 600);
-		frmOregonTrail.getContentPane().add(forPanel);
+        JPanel forPanel = new JPanel();
+        forPanel.setOpaque(false);
+        forPanel.setBounds(0, 0, 900, 600);
+        frmOregonTrail.getContentPane().add(forPanel);
 
-		JPanel midPanel = new JPanel();
-		midPanel.setOpaque(false);
-		midPanel.setBounds(0, 0, 900, 600);
-		frmOregonTrail.getContentPane().add(midPanel);
+        JPanel midPanel = new JPanel();
+        midPanel.setOpaque(false);
+        midPanel.setBounds(0, 0, 900, 600);
+        frmOregonTrail.getContentPane().add(midPanel);
 
-		JPanel backPanel = new JPanel();
-		backPanel.setOpaque(false);
-		backPanel.setBounds(0, 0, 900, 600);
-		frmOregonTrail.getContentPane().add(backPanel);
+        JPanel backPanel = new JPanel();
+        backPanel.setOpaque(false);
+        backPanel.setBounds(0, 0, 900, 600);
+        frmOregonTrail.getContentPane().add(backPanel);
 
 
         Timer timer = new Timer(41, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-				if(traveling == true){
-                miliSecondCound++;
-                if (miliSecondCound >= 24) {
-                    secondCount++;
-                    miliSecondCound = 0;
-					wagon.consumeFood();
-					lblFood.setText("Pounds of Food: " + wagon.getFoodPounds());
-                    allLabels.add(lblMake.randLabel("src/csv/images.csv"));
-                    System.out.println("Words");
-                }
-
-                for (int i = 0; i < allLabels.size(); i++) {
-                    if (allLabels.get(i).getName().equals("for")) {
-                        allLabels.get(i).setLayout(null);
-                        forPanel.add(allLabels.get(i));
-                    }
-                    if (allLabels.get(i).getName().equals("mid")) {
-                        allLabels.get(i).setLayout(null);
-                        midPanel.add(allLabels.get(i));
-                    }
-                    if (allLabels.get(i).getName().equals("bac")) {
-                        allLabels.get(i).setLayout(null);
-                        backPanel.add(allLabels.get(i));
+                if (traveling == true) {
+                    miliSecondCound++;
+                    if (miliSecondCound >= 24) {
+                        secondCount++;
+                        miliSecondCound = 0;
+                        wagon.consumeFood();
+                        lblFood.setText("Pounds of Food: " + wagon.getFoodPounds());
+                        allLabels.add(lblMake.randLabel("src/csv/images.csv"));
+                        System.out.println("Words");
                     }
 
-                    if (allLabels.get(i).getX() > 900) {
-                        allLabels.remove(i);
-                    }
-                }
+                    for (int i = 0; i < allLabels.size(); i++) {
+                        if (allLabels.get(i).getName().equals("for")) {
+                            allLabels.get(i).setLayout(null);
+                            forPanel.add(allLabels.get(i));
+                        }
+                        if (allLabels.get(i).getName().equals("mid")) {
+                            allLabels.get(i).setLayout(null);
+                            midPanel.add(allLabels.get(i));
+                        }
+                        if (allLabels.get(i).getName().equals("bac")) {
+                            allLabels.get(i).setLayout(null);
+                            backPanel.add(allLabels.get(i));
+                        }
 
-                for (int i = 0; i < allLabels.size(); i++) {
-                    if (allLabels.get(i).getName().equals("for")) {
-                        allLabels.get(i).setBounds(allLabels.get(i).getX() + 5, allLabels.get(i).getY(), allLabels.get(i).getWidth(), allLabels.get(i).getHeight());
-                    }
-                    if (allLabels.get(i).getName().equals("mid")) {
-                        allLabels.get(i).setBounds(allLabels.get(i).getX() + 3, allLabels.get(i).getY(), allLabels.get(i).getWidth(), allLabels.get(i).getHeight());
-                    }
-                    if (allLabels.get(i).getName().equals("bac")) {
-                        allLabels.get(i).setBounds(allLabels.get(i).getX() + 1, allLabels.get(i).getY(), allLabels.get(i).getWidth(), allLabels.get(i).getHeight());
+                        if (allLabels.get(i).getX() > 900) {
+                            allLabels.remove(i);
+                        }
                     }
 
-                    frmOregonTrail.repaint();
+                    for (int i = 0; i < allLabels.size(); i++) {
+                        if (allLabels.get(i).getName().equals("for")) {
+                            allLabels.get(i).setBounds(allLabels.get(i).getX() + 5, allLabels.get(i).getY(), allLabels.get(i).getWidth(), allLabels.get(i).getHeight());
+                        }
+                        if (allLabels.get(i).getName().equals("mid")) {
+                            allLabels.get(i).setBounds(allLabels.get(i).getX() + 3, allLabels.get(i).getY(), allLabels.get(i).getWidth(), allLabels.get(i).getHeight());
+                        }
+                        if (allLabels.get(i).getName().equals("bac")) {
+                            allLabels.get(i).setBounds(allLabels.get(i).getX() + 1, allLabels.get(i).getY(), allLabels.get(i).getWidth(), allLabels.get(i).getHeight());
+                        }
 
+                        frmOregonTrail.repaint();
+
+                    }
                 }
             }
-		}
-	
         });
 
         timer.start(); // Start the timer
