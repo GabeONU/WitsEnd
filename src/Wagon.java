@@ -1,7 +1,7 @@
 public class Wagon {
     
         private int numPeople;
-        private int foodPounds;
+        private int foodPounds = 300;
         private int consumptionRate;
     
         private static final int BARE_BONES_RATE = 1;
