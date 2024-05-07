@@ -61,6 +61,7 @@ public JLabel makeLabel(String path, String name, int x, int y) {
 		if(name.equals("mid")) {
 			lbl.setBounds(-100, 90, x, y);
 		}
+
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 					

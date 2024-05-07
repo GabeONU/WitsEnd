@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Wagon {
+<<<<<<< HEAD
     private int numPeople;
     private int foodPounds = 0;
     private int consumptionRate;
@@ -43,6 +44,31 @@ public class Wagon {
                 break;
             default:
                 System.out.println("Invalid consumption rate.");
+=======
+    
+        private int numPeople;
+        private int foodPounds = 0;
+        private int consumptionRate;
+    
+        private static final int BARE_BONES_RATE = 1;
+        private static final int MEAGER_RATE = 2;
+        private static final int FILLING_RATE = 3;
+    
+        private static final int NORMAL_SPEED_MODIFIER = 20;
+        private static final int STRENUOUS_SPEED_MODIFIER = 30;
+        private static final int GRUELING_SPEED_MODIFIER = 40;
+    
+        public int numberOfOx; 
+
+        private int currentSpeedModifier;
+    
+        // Constructor to initialize the wagon with number of people
+        public Wagon(int numPeople) {
+            this.numPeople = numPeople;
+            this.foodPounds = 300;
+            this.consumptionRate = BARE_BONES_RATE; // Default consumption rate: bare bones
+            this.currentSpeedModifier = NORMAL_SPEED_MODIFIER; // Default speed
+>>>>>>> 8367da9 (app fair stuff)
         }
     }
 
@@ -82,6 +108,15 @@ public class Wagon {
             // Not enough food for today
             System.out.println("Not enough food for today!");
         }
+
+        public void setNumOx(int numOx) {
+            this.numberOfOx = numOx;
+        }
+
+        public void setOxNumber(int i) {
+            this.numberOfOx = numberOfOx + i;
+        }
+
     }
     
     

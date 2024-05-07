@@ -2,9 +2,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Person {
+<<<<<<< HEAD
     private int money;
     private Wagon wagon; // Assuming each person has a wagon
     private List<Item> inventory; // Assuming each person has an inventory
+=======
+    private List<Item> inventory;
+    public int money;
+>>>>>>> 8367da9 (app fair stuff)
 
     public Person(int initialMoney) {
         this.money = initialMoney;
