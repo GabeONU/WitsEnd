@@ -2,34 +2,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Store {
-    private List<Item> itemsStore;
+    private List<Item> inventory;
 
     public Store() {
-        itemsStore = new ArrayList<>();
-        // Load items from the CSV file
-        CSVReader csvReader = new CSVReader();
-        itemsStore.addAll(csvReader.readItems("items.csv"));
+        inventory = new ArrayList<>();
     }
 
-    public List<Item> getItems() {
-        return itemsStore;
+    public void addItem(Item item) {
+        inventory.add(item);
     }
 
-    public void purchase(Person buyer, int itemIndex, int quantity) {
-        if (itemIndex >= 0 && itemIndex < itemsStore.size()) {
-            Item itemToBuy = itemsStore.get(itemIndex);
-            int totalPrice = itemToBuy.getPrice() * quantity;
-            if (buyer.getMoney() >= totalPrice) {
-                buyer.setMoney(-totalPrice);
-                for (int i = 0; i < quantity; i++) {
-                    buyer.addItemToInventory(itemToBuy);
-                }
-                System.out.println("Purchase successful: " + itemToBuy.getName() + " x" + quantity);
+    public void purchase(Person person, int itemIndex, int quantity) {
+        if (itemIndex >= 0 && itemIndex < inventory.size()) {
+            Item item = inventory.get(itemIndex);
+            int totalPrice = item.getPrice() * quantity;
+            int totalWeight = item.getWeight() * quantity;
+            if (person.getMoney() >= totalPrice && person.getWagon().getFreeWeight() >= totalWeight) {
+                person.setMoney(person.getMoney() - totalPrice);
+                person.getWagon().addItem(new Item(item.getName(), totalWeight, totalPrice));
+                System.out.println("You purchased " + quantity + " " + item.getName() + " for $" + totalPrice);
             } else {
-                System.out.println("Not enough money to buy: " + itemToBuy.getName() + " x" + quantity);
+                System.out.println("Insufficient funds or not enough space in the wagon.");
             }
         } else {
-            System.out.println("Invalid item index: " + itemIndex);
+            System.out.println("Invalid item index.");
         }
     }
 }

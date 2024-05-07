@@ -1,6 +1,9 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Storepopup extends JFrame {
     private Store store;
@@ -9,47 +12,63 @@ public class Storepopup extends JFrame {
     public Storepopup(Store store, Person player) {
         this.store = store;
         this.player = player;
-        initialize();
+        setupItems();
     }
 
-    private void initialize() {
-        setTitle("Store");
-        setSize(600, 400);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    private void setupItems() {
+        List<String[]> itemsData = new ArrayList<>();
+        itemsData.add(new String[]{"Bedroll", "15", "5"});
+        itemsData.add(new String[]{"Blacksmithing Tools", "200", "10"});
+        itemsData.add(new String[]{"Books", "75", "3"});
+        itemsData.add(new String[]{"Medicine", "10", "1"});
+        itemsData.add(new String[]{"Cast Iron Stove", "300", "20"});
+        itemsData.add(new String[]{"Chair", "20", "8"});
+        itemsData.add(new String[]{"Cookware & Eating Utensils", "75", "4"});
+        itemsData.add(new String[]{"Granny's Clock", "15", "3"});
+        itemsData.add(new String[]{"Gun Making Tools", "200", "12"});
+        itemsData.add(new String[]{"Keepsakes", "40", "2"});
+        itemsData.add(new String[]{"Lead Shot", "25", "6"});
+        itemsData.add(new String[]{"Mirror", "15", "2"});
+        itemsData.add(new String[]{"Gunpowder", "80", "5"});
+        itemsData.add(new String[]{"Tent & Gear", "150", "15"});
+        itemsData.add(new String[]{"Tools", "50", "7"});
+        itemsData.add(new String[]{"Toys", "15", "1"});
 
         JPanel panel = new JPanel();
-        getContentPane().add(panel);
-        panel.setLayout(null);
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        for (String[] itemData : itemsData) {
+            String itemName = itemData[0];
+            int itemWeight = Integer.parseInt(itemData[1]);
+            int itemPrice = Integer.parseInt(itemData[2]);
 
-        JLabel welcomeLabel = new JLabel("Hi, welcome to the store!");
-        welcomeLabel.setBounds(220, 30, 200, 20);
-        panel.add(welcomeLabel);
-
-        int y = 60;
-        for (int i = 0; i < store.getItems().size(); i++) {
-            Item item = store.getItems().get(i);
-            JLabel itemLabel = new JLabel(item.getName() + " - Price: $" + item.getPrice() + ", Weight: " + item.getWeight() + " lbs");
-            itemLabel.setBounds(50, y, 400, 20);
-            panel.add(itemLabel);
-
-            JTextField quantityField = new JTextField("0");
-            quantityField.setBounds(470, y, 50, 20);
-            panel.add(quantityField);
-
-            JButton buyButton = new JButton("Buy");
-            buyButton.setBounds(530, y, 60, 20);
-            int finalI = i; // Need to make a final copy for ActionListener
-            buyButton.addActionListener(new ActionListener() {
+            JButton itemButton = new JButton(itemName + " - Price: $" + itemPrice + ", Weight: " + itemWeight + " lbs");
+            itemButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    int quantity = Integer.parseInt(quantityField.getText());
-                    store.purchase(player, finalI, quantity);
+                    buyItem(itemName, itemWeight, itemPrice);
                 }
             });
-            panel.add(buyButton);
+            panel.add(itemButton);
+        }
 
-            y += 30;
+        JScrollPane scrollPane = new JScrollPane(panel);
+        scrollPane.setPreferredSize(new Dimension(400, 300));
+
+        add(scrollPane);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        pack();
+    }
+
+    private void buyItem(String itemName, int itemWeight, int itemPrice) {
+        // Check if the player has enough money and space in the wagon
+        if (player.getMoney() >= itemPrice && player.getWagon().getFreeWeight() >= itemWeight) {
+            // Deduct money from player
+            player.setMoney(-itemPrice);
+            // Add item to player's inventory
+            player.addItemToInventory(new Item(itemName, itemWeight, itemPrice));
+            JOptionPane.showMessageDialog(this, "You bought " + itemName + " for $" + itemPrice);
+        } else {
+            JOptionPane.showMessageDialog(this, "You don't have enough money or space in the wagon.");
         }
     }
 }

@@ -1,29 +1,24 @@
 public class Item {
     private String name;
-    private int price;
     private int weight;
-    private double pricePerPound;
+    private int price;
 
-    public Item(String name, int price, int weight, double pricePerPound) {
+    public Item(String name, int weight, int price) {
         this.name = name;
-        this.price = price;
         this.weight = weight;
-        this.pricePerPound = pricePerPound;
+        this.price = price;
     }
 
+    // Getter methods for name, weight, and price
     public String getName() {
         return name;
-    }
-
-    public int getPrice() {
-        return price;
     }
 
     public int getWeight() {
         return weight;
     }
 
-    public double getPricePerPound() {
-        return pricePerPound;
+    public int getPrice() {
+        return price;
     }
 }
