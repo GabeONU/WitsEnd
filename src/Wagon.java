@@ -69,12 +69,12 @@ public class Wagon {
         }
     
         // Method to simulate consuming food for a specified number of hours
-        public void consumeFood(int hours) {
-            int totalConsumption = calculateFoodConsumptionPerHour() * hours;
-            if (totalConsumption <= this.foodPounds) {
-                this.foodPounds -= totalConsumption;
+        public void consumeFood() {
+            int consumptionAmount = this.numPeople * this.consumptionRate * 5; // Multiply by 5
+            if (this.foodPounds >= consumptionAmount) {
+                this.foodPounds -= consumptionAmount;
             } else {
-                System.out.println("Not enough food!");
+                // Not enough food for today
             }
         }
     
