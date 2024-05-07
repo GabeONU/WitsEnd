@@ -10,7 +10,7 @@ import java.util.Random;
 import javax.swing.*;
 
 public class Main {
-
+//
     private JFrame frmOregonTrail;
     private static CSVReader csvRead = new CSVReader();
     private static LabelReader lblMake = new LabelReader();
