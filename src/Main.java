@@ -96,15 +96,15 @@ public class Main {
         SpeedChange.setBounds(520, 412, 117, 29);
         frmOregonTrail.getContentPane().add(SpeedChange);
         
-        JButton foodConsumption = new JButton("Food");
-        foodConsumption.addActionListener(new ActionListener() {
+        JButton foodConsumptionIncrease = new JButton("Food Consumption Increase");
+        foodConsumptionIncrease.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
         
             }
         });
-        foodConsumption.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 13));
-        foodConsumption.setBounds(670, 412, 117, 29);
-        frmOregonTrail.getContentPane().add(foodConsumption);
+        foodConsumptionIncrease.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 13));
+        foodConsumptionIncrease.setBounds(670, 412, 150, 29);
+        frmOregonTrail.getContentPane().add(foodConsumptionIncrease);
       
         gameLoop();
     }
