@@ -1,20 +1,28 @@
 import javax.swing.*;
+
+import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Storepopup extends JFrame {
     private Store store;
-    private Person player;
+    private Person player = new Person();
 
     public Storepopup(Store store, Person player) {
         this.store = store;
-        this.player = player;
+        player = Main.player;
         initialize();
     }
 
     private void initialize() {
-        setTitle("Store");
-        setSize(600, 400);
+
+        player = Main.player;
+        Main.traveling = false;
+
+
+        setTitle("Yamhill County's Store");
+        setSize(500, 600);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -26,30 +34,42 @@ public class Storepopup extends JFrame {
         welcomeLabel.setBounds(220, 30, 200, 20);
         panel.add(welcomeLabel);
 
-        int y = 60;
-        for (int i = 0; i < store.getItems().size(); i++) {
-            Item item = store.getItems().get(i);
-            JLabel itemLabel = new JLabel(item.getName() + " - Price: $" + item.getPrice() + ", Weight: " + item.getWeight() + " lbs");
-            itemLabel.setBounds(50, y, 400, 20);
+        JLabel moneyLabel = new JLabel("Money: $" + player.getMoney());
+        moneyLabel.setBounds(20, 30, 100, 20);
+        panel.add(moneyLabel);
+
+        ArrayList<Item> items = store.getItems();
+        for (int i = 0; i < items.size(); i++) {
+            final int finalI = i;
+            Item item = items.get(i);
+            JLabel itemLabel = new JLabel(item.getName() + " - $" + item.getPrice());
+            itemLabel.setBounds(20, 60 + i * 30, 200, 20);
             panel.add(itemLabel);
 
-            JTextField quantityField = new JTextField("0");
-            quantityField.setBounds(470, y, 50, 20);
+            JTextField quantityField = new JTextField("1");
+            quantityField.setBounds(220, 60 + i * 30, 50, 20);
             panel.add(quantityField);
 
             JButton buyButton = new JButton("Buy");
-            buyButton.setBounds(530, y, 60, 20);
-            int finalI = i; // Need to make a final copy for ActionListener
+            buyButton.setBounds(280, 60 + i * 30, 70, 20);
             buyButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     int quantity = Integer.parseInt(quantityField.getText());
                     store.purchase(player, finalI, quantity);
+                    moneyLabel.setText("Money: $" + player.getMoney());
                 }
             });
             panel.add(buyButton);
-
-            y += 30;
         }
+
+        JButton exit = new JButton("Exit");
+        exit.setBounds(400, 520, 70, 20);
+        exit.addActionListener(e -> {
+            dispose();
+            Main.traveling = true;
+        });
+        panel.add(exit);
+        
     }
 }

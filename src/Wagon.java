@@ -12,6 +12,8 @@ public class Wagon {
         private static final int STRENUOUS_SPEED_MODIFIER = 30;
         private static final int GRUELING_SPEED_MODIFIER = 40;
     
+        public int numberOfOx; 
+
         private int currentSpeedModifier;
     
         // Constructor to initialize the wagon with number of people
@@ -82,5 +84,14 @@ public class Wagon {
         public int getFoodPounds() {
             return this.foodPounds;
         }
+
+        public void setNumOx(int numOx) {
+            this.numberOfOx = numOx;
+        }
+
+        public void setOxNumber(int i) {
+            this.numberOfOx = numberOfOx + i;
+        }
+
     }
     

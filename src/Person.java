@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Person {
     private List<Item> inventory;
-    private int money;
+    public int money;
 
     public Person() {
         inventory = new ArrayList<>();

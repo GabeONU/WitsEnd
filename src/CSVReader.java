@@ -15,12 +15,13 @@ public class CSVReader {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(COMMA_DELIMITER);
-                if (parts.length == 2) {
+                if (parts.length == 3) {
                     String itemName = parts[0].trim();
                     int itemPrice = Integer.parseInt(parts[1].trim());
                     // Create a new Item object and add it to the list
                     Item item = new Item(itemName, itemPrice, 0, 0);
                     items.add(item);
+                    System.out.println("Added item: " + item);
                 } else {
                     System.err.println("Invalid line in CSV: " + line);
                 }
