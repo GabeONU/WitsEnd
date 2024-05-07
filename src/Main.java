@@ -93,19 +93,29 @@ public class Main {
             }
         });
         SpeedChange.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 13));
-        SpeedChange.setBounds(520, 412, 117, 29);
+        SpeedChange.setBounds(520, 412, 170, 29);
         frmOregonTrail.getContentPane().add(SpeedChange);
         
-        JButton foodConsumptionIncrease = new JButton("Food Consumption Increase");
+        JButton foodConsumptionIncrease = new JButton("Consumption Increase");
         foodConsumptionIncrease.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
         
             }
         });
         foodConsumptionIncrease.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 13));
-        foodConsumptionIncrease.setBounds(670, 412, 150, 29);
+        foodConsumptionIncrease.setBounds(715, 412, 170, 29);
         frmOregonTrail.getContentPane().add(foodConsumptionIncrease);
       
+        JButton foodConsumptionDecrease = new JButton("Consumption Decrease");
+        foodConsumptionDecrease.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+        
+            }
+        });
+        foodConsumptionDecrease.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 13));
+        foodConsumptionDecrease.setBounds(715, 470, 170, 29);
+        frmOregonTrail.getContentPane().add(foodConsumptionDecrease);
+
         gameLoop();
     }
 
