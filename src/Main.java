@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
+import javax.swing.JFrame;
 
 public class Main {
 
@@ -34,8 +35,6 @@ public class Main {
 
     public Main() {
         initialize();
-        // Initialize the store object
-        this.store = new Store();
     }
 
     private void initialize() {
@@ -77,37 +76,45 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 openStore();
             }
+            
         });
 
         JLabel lblStats = new JLabel("Stats:");
         lblStats.setBounds(51, 389, 61, 16);
         frmOregonTrail.getContentPane().add(lblStats);
-
+       
+        JButton SpeedChange = new JButton("Speed");
+        SpeedChange.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+               
+            }
+        });
+        SpeedChange.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 13));
+        SpeedChange.setBounds(520, 412, 117, 29);
+        frmOregonTrail.getContentPane().add(SpeedChange);
+        
+        JButton foodConsumption = new JButton("Food");
+        foodConsumption.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+        
+            }
+        });
+        foodConsumption.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 13));
+        foodConsumption.setBounds(670, 412, 117, 29);
+        frmOregonTrail.getContentPane().add(foodConsumption);
+      
         gameLoop();
     }
 
-    private void openStore() {
-        Storepopup storePopup = new Storepopup(store, player);
-        storePopup.setVisible(true);
-    }
+	private void openStore() {
+		Store store = new Store(); // Instantiate the store
+		Storepopup storePopup = new Storepopup(store, player); // Create the store popup window
+		storePopup.setVisible(true); // Display the store popup window
+	}
+	
+	
 
     private void gameLoop() {
-
-		JPanel forg = new JPanel();
-		forg.setOpaque(false);
-		forg.setBounds(0, 0, 900, 600);
-		frmOregonTrail.getContentPane().add(forg);
-
-		JPanel midg = new JPanel();
-		midg.setOpaque(false);
-		midg.setBounds(0, 0, 900, 600);
-		frmOregonTrail.getContentPane().add(midg);
-
-		JPanel backg = new JPanel();
-		backg.setOpaque(false);
-		backg.setBounds(0, 0, 900, 600);
-		frmOregonTrail.getContentPane().add(backg);
-
         Timer timer = new Timer(41, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -124,15 +131,15 @@ public class Main {
                 for (int i = 0; i < allLabels.size(); i++) {
                     if (allLabels.get(i).getName().equals("for")) {
                         allLabels.get(i).setLayout(null);
-                        forg.add(allLabels.get(i));
+                        frmOregonTrail.add(allLabels.get(i));
                     }
                     if (allLabels.get(i).getName().equals("mid")) {
                         allLabels.get(i).setLayout(null);
-                        midg.add(allLabels.get(i));
+                        frmOregonTrail.add(allLabels.get(i));
                     }
                     if (allLabels.get(i).getName().equals("bac")) {
                         allLabels.get(i).setLayout(null);
-                        backg.add(allLabels.get(i));
+                        frmOregonTrail.add(allLabels.get(i));
                     }
 
                     if (allLabels.get(i).getX() > 900) {
