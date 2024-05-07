@@ -8,17 +8,22 @@ public class CSVReader {
 
     private static final String COMMA_DELIMITER = ",";
 
-    public List<Item> readItemsCSV(String path) {
+    public List<Item> readItems(String path) {
         List<Item> items = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
             while ((line = br.readLine()) != null) {
-                String[] itemData = line.split(COMMA_DELIMITER);
-                String name = itemData[0].trim();
-                int cost = Integer.parseInt(itemData[1].trim());
-                int weight = Integer.parseInt(itemData[2].trim());
-                items.add(new Item(name, cost, weight, 0)); // Assuming pricePerPound is not specified in CSV
+                String[] parts = line.split(COMMA_DELIMITER);
+                if (parts.length == 2) {
+                    String itemName = parts[0].trim();
+                    int itemPrice = Integer.parseInt(parts[1].trim());
+                    // Create a new Item object and add it to the list
+                    Item item = new Item(itemName, itemPrice, 0, 0);
+                    items.add(item);
+                } else {
+                    System.err.println("Invalid line in CSV: " + line);
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -6,8 +6,9 @@ public class Store {
 
     public Store() {
         itemsStore = new ArrayList<>();
-        itemsStore.add(new Item("Item 1", 10, 1, 2.5));
-        itemsStore.add(new Item("Item 2", 20, 2, 5.0));
+        // Load items from the CSV file
+        CSVReader csvReader = new CSVReader();
+        itemsStore.addAll(csvReader.readItems("items.csv"));
     }
 
     public List<Item> getItems() {
