@@ -54,6 +54,10 @@ public class Main {
         lblFood.setBounds(29, 462, 179, 16);
         frmOregonTrail.getContentPane().add(lblFood);
 
+		JLabel lblMoney = new JLabel("Party Money:");
+        lblMoney.setBounds(29, 486, 179, 16);
+        frmOregonTrail.getContentPane().add(lblMoney);
+
         JButton btnState = new JButton("Start/ Stop");
         btnState.setBounds(220, 412, 117, 29);
         frmOregonTrail.getContentPane().add(btnState);
