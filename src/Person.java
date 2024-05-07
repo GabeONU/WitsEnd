@@ -38,4 +38,9 @@ public class Person {
     public void removeItemFromInventory(Item item) {
         inventory.remove(item);
     }
+    
+    // Add method to get the wagon
+    public Wagon getWagon() {
+        return wagon;
+    }
 }

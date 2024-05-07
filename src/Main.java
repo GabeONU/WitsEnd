@@ -220,7 +220,6 @@ public class Main {
                 }
             }
         });
-
-        timer.start(); // Start the timer
+        timer.start();
     }
 }
