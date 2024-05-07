@@ -14,8 +14,12 @@ public class Main {
     public static int miliSecondCound = 0;
     public static int secondCount = 0;
     private static List<JLabel> allLabels = new ArrayList<>();
+	private static Wagon wagon = new Wagon(5);
 
 	private static boolean traveling = true;
+
+	private static MyLabel lblFood = new MyLabel("Pounds of Food:");
+
 
     private Store store;
     private Person player;
@@ -44,19 +48,18 @@ public class Main {
         frmOregonTrail.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frmOregonTrail.getContentPane().setLayout(null);
 
-        JLabel lblDays = new JLabel("Number of Days: ");
+        MyLabel lblDays = new MyLabel("Number of Days: ");
         lblDays.setBounds(29, 417, 179, 16);
         frmOregonTrail.getContentPane().add(lblDays);
 
-        JLabel lblHealth = new JLabel("Party Health:  ");
+        MyLabel lblHealth = new MyLabel("Party Health:  ");
         lblHealth.setBounds(29, 440, 179, 16);
         frmOregonTrail.getContentPane().add(lblHealth);
 
-        JLabel lblFood = new JLabel("Pounds of Food:");
         lblFood.setBounds(29, 462, 179, 16);
         frmOregonTrail.getContentPane().add(lblFood);
 
-		JLabel lblMoney = new JLabel("Party Money:");
+		MyLabel lblMoney = new MyLabel("Party Money:");
         lblMoney.setBounds(29, 486, 179, 16);
         frmOregonTrail.getContentPane().add(lblMoney);
 
@@ -141,6 +144,8 @@ public class Main {
                 if (miliSecondCound >= 24) {
                     secondCount++;
                     miliSecondCound = 0;
+					wagon.consumeFood();
+					lblFood.setText("Pounds of Food: " + wagon.getFoodPounds());
                     allLabels.add(lblMake.randLabel("src/csv/images.csv"));
                     System.out.println("Words");
                 }

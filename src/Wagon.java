@@ -1,7 +1,7 @@
 public class Wagon {
     
         private int numPeople;
-        private int foodPounds = 300;
+        private int foodPounds = 0;
         private int consumptionRate;
     
         private static final int BARE_BONES_RATE = 1;
@@ -17,7 +17,7 @@ public class Wagon {
         // Constructor to initialize the wagon with number of people
         public Wagon(int numPeople) {
             this.numPeople = numPeople;
-            this.foodPounds = 0;
+            this.foodPounds = 300;
             this.consumptionRate = BARE_BONES_RATE; // Default consumption rate: bare bones
             this.currentSpeedModifier = NORMAL_SPEED_MODIFIER; // Default speed
         }
