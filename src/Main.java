@@ -115,6 +115,23 @@ public class Main {
 	
 
     private void gameLoop() {
+
+		JPanel forPanel = new JPanel();
+		forPanel.setOpaque(false);
+		forPanel.setBounds(0, 0, 900, 600);
+		frmOregonTrail.getContentPane().add(forPanel);
+
+		JPanel midPanel = new JPanel();
+		midPanel.setOpaque(false);
+		midPanel.setBounds(0, 0, 900, 600);
+		frmOregonTrail.getContentPane().add(midPanel);
+
+		JPanel backPanel = new JPanel();
+		backPanel.setOpaque(false);
+		backPanel.setBounds(0, 0, 900, 600);
+		frmOregonTrail.getContentPane().add(backPanel);
+
+
         Timer timer = new Timer(41, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -131,15 +148,15 @@ public class Main {
                 for (int i = 0; i < allLabels.size(); i++) {
                     if (allLabels.get(i).getName().equals("for")) {
                         allLabels.get(i).setLayout(null);
-                        frmOregonTrail.add(allLabels.get(i));
+                        forPanel.add(allLabels.get(i));
                     }
                     if (allLabels.get(i).getName().equals("mid")) {
                         allLabels.get(i).setLayout(null);
-                        frmOregonTrail.add(allLabels.get(i));
+                        midPanel.add(allLabels.get(i));
                     }
                     if (allLabels.get(i).getName().equals("bac")) {
                         allLabels.get(i).setLayout(null);
-                        frmOregonTrail.add(allLabels.get(i));
+                        backPanel.add(allLabels.get(i));
                     }
 
                     if (allLabels.get(i).getX() > 900) {
