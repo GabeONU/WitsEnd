@@ -4,7 +4,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
-import javax.swing.JFrame;
 
 public class Main {
 
@@ -86,15 +85,30 @@ public class Main {
         lblStats.setBounds(51, 389, 61, 16);
         frmOregonTrail.getContentPane().add(lblStats);
        
-        JButton SpeedChange = new JButton("Speed");
-        SpeedChange.addActionListener(new ActionListener() {
+        JButton SpeedIncrease = new JButton("Speed Increase");
+        SpeedIncrease.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                
             }
         });
-        SpeedChange.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 13));
-        SpeedChange.setBounds(520, 412, 170, 29);
-        frmOregonTrail.getContentPane().add(SpeedChange);
+        SpeedIncrease.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 13));
+        SpeedIncrease.setBounds(520, 412, 170, 29);
+        frmOregonTrail.getContentPane().add(SpeedIncrease);
+
+        JButton SpeedDecrease = new JButton("Speed Increase");
+        SpeedDecrease.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+               
+            }
+        });
+        
+        JLabel SpeedRateDisplay = new JLabel("Speed Rate: "/* + wag.getCurrentSpeedModifier()*/);
+        SpeedRateDisplay.setBounds(520, 440, 170, 29);
+        frmOregonTrail.getContentPane().add(SpeedRateDisplay);
+        
+        SpeedDecrease.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 13));
+        SpeedDecrease.setBounds(520, 470, 170, 29);
+        frmOregonTrail.getContentPane().add(SpeedDecrease);
         
         JButton foodConsumptionIncrease = new JButton("Consumption Increase");
         foodConsumptionIncrease.addActionListener(new ActionListener() {
@@ -102,6 +116,8 @@ public class Main {
         
             }
         });
+
+        
         foodConsumptionIncrease.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 13));
         foodConsumptionIncrease.setBounds(715, 412, 170, 29);
         frmOregonTrail.getContentPane().add(foodConsumptionIncrease);
@@ -112,6 +128,11 @@ public class Main {
         
             }
         });
+
+        JLabel DisplayConsumtionRate = new JLabel("ConsumtionRate: ");
+        DisplayConsumtionRate.setBounds(715, 440, 170, 29);
+        frmOregonTrail.getContentPane().add(DisplayConsumtionRate);
+
         foodConsumptionDecrease.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 13));
         foodConsumptionDecrease.setBounds(715, 470, 170, 29);
         frmOregonTrail.getContentPane().add(foodConsumptionDecrease);
