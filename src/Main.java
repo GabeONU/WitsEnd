@@ -538,6 +538,7 @@ public class Main {
 						if(response == 1){
 							JOptionPane.showMessageDialog(frmOregonTrail, "You talk to a traveling woman. \n She tells you that you should talk to people at forts because their advice will help you get across the rivers");
 							traveling = true;
+                            waggonTime = 0;
 						}
 					}
 				}
