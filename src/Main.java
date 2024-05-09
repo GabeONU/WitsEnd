@@ -143,13 +143,13 @@ public class Main {
 				if(speedRateIndex < 3){
 					speedRateIndex++;
 					if(speedRateIndex == 1){
-						SpeedRateDisplay.setText("Low");
+						SpeedRateDisplay.setText("Speed Rate: Normal");
 					}
 					if(speedRateIndex == 2){
-						SpeedRateDisplay.setText("Medium");
+						SpeedRateDisplay.setText("Speed Rate: Strenuous");
 					}
 					if(speedRateIndex == 3){
-						SpeedRateDisplay.setText("High");
+						SpeedRateDisplay.setText("Speed Rate: Grueling");
 					}
 				}
                
@@ -166,13 +166,13 @@ public class Main {
 				if(speedRateIndex > 0){
 					speedRateIndex--;
 					if(speedRateIndex == 1){
-						SpeedRateDisplay.setText("Low");
+						SpeedRateDisplay.setText("Speed Rate: Normal");
 					}
 					if(speedRateIndex == 2){
-						SpeedRateDisplay.setText("Medium");
+						SpeedRateDisplay.setText("Speed Rate: Strenuous");
 					}
 					if(speedRateIndex == 3){
-						SpeedRateDisplay.setText("High");
+						SpeedRateDisplay.setText("Speed Rate: Grueling");
 					}
 				}
                
@@ -203,13 +203,16 @@ public class Main {
 				if(foodConsumeIndex < 3){
 					foodConsumeIndex++;
 					if(foodConsumeIndex == 1){
-						DisplayConsumtionRate.setText("Low");
+						DisplayConsumtionRate.setText("ConsumtionRate: Bare Bones");
+						wagon.setConsumptionRate(foodConsumeIndex); // Remove this line
 					}
 					if(foodConsumeIndex == 2){
-						DisplayConsumtionRate.setText("Medium");
+						DisplayConsumtionRate.setText("ConsumtionRate: Meager");
+						wagon.setConsumptionRate(foodConsumeIndex);
 					}
 					if(foodConsumeIndex == 3){
-						DisplayConsumtionRate.setText("High");
+						DisplayConsumtionRate.setText("ConsumtionRate: Filling");
+						wagon.setConsumptionRate(foodConsumeIndex);
 					}
 				}
 
@@ -227,13 +230,16 @@ public class Main {
 				if(foodConsumeIndex > 1){
 					foodConsumeIndex--;
 					if(foodConsumeIndex == 1){
-						DisplayConsumtionRate.setText("Low");
+						DisplayConsumtionRate.setText("ConsumtionRate: Bare Bones");
+						wagon.setConsumptionRate(foodConsumeIndex);
 					}
 					if(foodConsumeIndex == 2){
-						DisplayConsumtionRate.setText("Medium");
+						DisplayConsumtionRate.setText("ConsumtionRate: Meager");
+						wagon.setConsumptionRate(foodConsumeIndex);
 					}
 					if(foodConsumeIndex == 3){
-						DisplayConsumtionRate.setText("High");
+						DisplayConsumtionRate.setText("ConsumtionRate: Filling");
+						wagon.setConsumptionRate(foodConsumeIndex);
 					}
 				}
 			}
@@ -666,4 +672,9 @@ public class Main {
 
         timer.start(); // Start the timer
     }
+
+	public static void setFoodConsumeIndex(int foodConsumeIndex) {
+		Main.foodConsumeIndex = foodConsumeIndex;
+	}
 }
+

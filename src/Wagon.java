@@ -7,7 +7,7 @@ public class Wagon {
         private static final int BARE_BONES_RATE = 1;
         private static final int MEAGER_RATE = 2;
         private static final int FILLING_RATE = 3;
-    
+        private int foodConsumeIndex;
         private static final int NORMAL_SPEED_MODIFIER = 20;
         private static final int STRENUOUS_SPEED_MODIFIER = 30;
         private static final int GRUELING_SPEED_MODIFIER = 40;
@@ -17,6 +17,11 @@ public class Wagon {
         private int currentSpeedModifier;
     
         // Constructor to initialize the wagon with number of people
+       
+       
+        public void setFoodConsumeIndex(int index) {
+            this.foodConsumeIndex = index;
+        }
         public Wagon(int numPeople) {
             this.numPeople = numPeople;
             this.foodPounds = 300;
@@ -30,16 +35,9 @@ public class Wagon {
         }
     
         // Method to set the consumption rate
-        public void setConsumptionRate(int rate) {
-            switch (rate) {
-                case BARE_BONES_RATE:
-                case MEAGER_RATE:
-                case FILLING_RATE:
-                    this.consumptionRate = rate;
-                    break;
-                default:
-                    System.out.println("Invalid consumption rate.");
-            }
+        public void setConsumptionRate(int index) {
+                    this.consumptionRate = index;
+                   
         }
     
         // Method to set the current speed modifier
@@ -72,7 +70,7 @@ public class Wagon {
     
         // Method to simulate consuming food for a specified number of hours
         public void consumeFood() {
-            int consumptionAmount = this.numPeople * this.consumptionRate * 5; // Multiply by 5
+            int consumptionAmount = this.numPeople * this.consumptionRate; // Multiply by 5
             if (this.foodPounds >= consumptionAmount) {
                 this.foodPounds -= consumptionAmount;
             } else {
@@ -91,6 +89,9 @@ public class Wagon {
 
         public void setOxNumber(int i) {
             this.numberOfOx = numberOfOx + i;
+        }
+        public int getConsumptionRate() {
+            return consumptionRate;
         }
 
     }
