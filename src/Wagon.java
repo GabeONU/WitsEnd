@@ -122,4 +122,11 @@ public class Wagon {
     public void setOxNumber(int i) {
         this.numberOfOx = numberOfOx + i;
     }
+} 
+
 }
+       
+
+    
+    
+
