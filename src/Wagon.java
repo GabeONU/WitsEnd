@@ -3,76 +3,6 @@
  */
 public class Wagon {
 
-        private int currentSpeedModifier;
-    
-        // Constructor to initialize the wagon with number of people
-        public Wagon(int numPeople) {
-            this.numPeople = numPeople;
-            this.foodPounds = 300;
-            this.consumptionRate = BARE_BONES_RATE; // Default consumption rate: bare bones
-            this.currentSpeedModifier = NORMAL_SPEED_MODIFIER; // Default speed
-        }
-    
-        // Method to add food to the wagon
-        public void addFood(int pounds) {
-            this.foodPounds += pounds;
-        }
-    
-        // Method to set the consumption rate
-        public void setConsumptionRate(int rate) {
-            switch (rate) {
-                case BARE_BONES_RATE:
-                case MEAGER_RATE:
-                case FILLING_RATE:
-                    this.consumptionRate = rate;
-                    break;
-                default:
-                    System.out.println("Invalid consumption rate.");
-            }
-        }
-    
-        // Method to set the current speed modifier
-        public void setCurrentSpeed(String speed) {
-            switch (speed.toLowerCase()) {
-                case "normal":
-                    this.currentSpeedModifier = NORMAL_SPEED_MODIFIER;
-                    break;
-                case "strenuous":
-                    this.currentSpeedModifier = STRENUOUS_SPEED_MODIFIER;
-                    break;
-                case "grueling":
-                    this.currentSpeedModifier = GRUELING_SPEED_MODIFIER;
-                    break;
-                default:
-                    System.out.println("Invalid speed. Setting to normal.");
-                    this.currentSpeedModifier = NORMAL_SPEED_MODIFIER;
-            }
-        }
-    
-        // Method to get the current speed modifier
-        public int getCurrentSpeedModifier() {
-            return this.currentSpeedModifier;
-        }
-    
-        // Method to calculate food consumption per hour based on current rate and number of people
-        public int calculateFoodConsumptionPerHour() {
-            return this.consumptionRate * this.numPeople;
-        }
-    
-        // Method to simulate consuming food for a specified number of hours
-        public void consumeFood() {
-            int consumptionAmount = this.numPeople * this.consumptionRate; // Multiply by 5
-            if (this.foodPounds >= consumptionAmount) {
-                this.foodPounds -= consumptionAmount;
-            } else {
-                // Not enough food for today
-            }
-        }
-    
-        // Method to get the remaining food pounds
-        public int getFoodPounds() {
-            return this.foodPounds;
-          
     private int numPeople; // Number of people in the wagon
     private int foodPounds = 0; // Amount of food in pounds
     private int consumptionRate; // Rate at which food is consumed
@@ -117,7 +47,6 @@ public class Wagon {
                 break;
             default:
                 System.out.println("Invalid consumption rate.");
-
         }
     }
 

@@ -21,9 +21,7 @@ public class Main {
     private static CSVReader csvRead = new CSVReader();
     private static LabelReader lblMake = new LabelReader();
     public static int miliSecondCound = 0;
-	public static int miliSecondCound2 = 0;
     public static int secondCount = 0;
-	public static int secondCount2 = 0;
     private static List<JLabel> allLabels = new ArrayList<>();
 	private static List<JLabel> allOxLabels = new ArrayList<>();
 	private static Wagon wagon = new Wagon(5);
@@ -639,33 +637,15 @@ public class Main {
 
 				}
 
-				
-					miliSecondCound2++;
-					if (miliSecondCound2 >= 24 && speedRateIndex == 1){
-					secondCount2++;
-					miliSecondCound2 = 0;
-					lblDays.setText("Number of Days: " + secondCount2);
-					}
-					if (miliSecondCound2 >= 8 && miliSecondCound2 <= 16 && speedRateIndex == 2){
-					secondCount2++;
-					miliSecondCound2 = 0;
-					lblDays.setText("Number of Days: " + secondCount2);
-				}
-					if (miliSecondCound2 >= 7 && miliSecondCound2 <= 8 && speedRateIndex == 3){
-					secondCount2++;
-					miliSecondCound2 = 0;
-					lblDays.setText("Number of Days: " + secondCount2);
-				}
-
 				miliSecondCound++;
-				if(miliSecondCound>= 24){
-					secondCount++;
-					miliSecondCound = 0;
-				
+                if (miliSecondCound >= 24) {
+                    secondCount++;
+                    miliSecondCound = 0;
+
 					wagon.consumeFood();
 					lblFood.setText("Pounds of Food: " + wagon.getFoodPounds());
 
-					
+					lblDays.setText("Number of Days: " + secondCount);
 					if(skipTree != true){
                     allLabels.add(lblMake.randLabel("src/csv/images.csv"));
 					} else {
@@ -737,15 +717,14 @@ public class Main {
             }
 		}
 	
-	});
+        });
 
         timer.start(); // Start the timer
+    }
+
+	public static void setFoodConsumeIndex(int foodConsumeIndex) {
+		Main.foodConsumeIndex = foodConsumeIndex;
 	}
-
-		public static void setFoodConsumeIndex(int foodConsumeIndex) {
-			Main.foodConsumeIndex = foodConsumeIndex;
-		}
-	} // Add this closing brace to complete the class body
-
+}
 
 
