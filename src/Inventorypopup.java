@@ -1,25 +1,29 @@
-import java.util.ArrayList;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
+/**
+ * A popup window displaying the inventory of a player.
+ */
 public class Inventorypopup extends JFrame {
 
+    /** The player whose inventory is displayed. */
     Person playerInven;
 
+    /**
+     * Constructs a new Inventorypopup.
+     *
+     * @param player the player whose inventory is to be displayed
+     */
     public Inventorypopup(Person player) {
-
         playerInven = Main.player;
         initialize();
     }
 
+    /** Initializes the inventory popup window. */
     private void initialize() {
-
         Main.traveling = false;
-
         playerInven = Main.player;
 
         setTitle("Store");
@@ -35,14 +39,13 @@ public class Inventorypopup extends JFrame {
         moneyLabel.setBounds(20, 30, 100, 20);
         panel.add(moneyLabel);
 
-        for(int i = 0; i < playerInven.getInventory().size(); i++) {
+        for (int i = 0; i < playerInven.getInventory().size(); i++) {
             Item item = playerInven.getInventory().get(i);
             JLabel itemLabel = new JLabel(item.getName());
             itemLabel.setBounds(20, 60 + i * 30, 200, 20);
             panel.add(itemLabel);
+        }
 
-        } 
-        
         JButton exit = new JButton("Exit");
         exit.setBounds(400, 520, 70, 20);
         exit.addActionListener(e -> {
@@ -50,7 +53,5 @@ public class Inventorypopup extends JFrame {
             Main.traveling = true;
         });
         panel.add(exit);
-
-        
     }
 }

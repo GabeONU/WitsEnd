@@ -1,3 +1,9 @@
+/**
+ * The Main class represents the main entry point of the Oregon Trail game application.
+ * It initializes the game environment, GUI components, and controls the game loop.
+ */
+
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -10,7 +16,7 @@ import java.util.Random;
 import javax.swing.*;
 
 public class Main {
-//
+// Variables for GUI components and game state
     private JFrame frmOregonTrail;
     private static CSVReader csvRead = new CSVReader();
     private static LabelReader lblMake = new LabelReader();
@@ -47,6 +53,10 @@ public class Main {
 
 	private static boolean oxDrawn = false;
 
+	/**
+     * The main method, the entry point of the program.
+     * @param args Command-line arguments
+     */
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -59,11 +69,15 @@ public class Main {
             }
         });
     }
-
+ /**
+     * Creates a new instance of the Main class.
+     */
     public Main() {
         initialize();
     }
-
+/**
+     * Initializes the GUI components and sets up the game environment.
+     */
     private void initialize() {
         frmOregonTrail = new JFrame();
         frmOregonTrail.setTitle("Oregon Trail");
@@ -250,7 +264,9 @@ public class Main {
 		startStore();
 
     }
-
+/**
+     * Opens the inventory interface to check the player's inventory.
+     */
 	private void openStore() {
 		Store store = new Store(); // Instantiate the store
 		Storepopup storePopup = new Storepopup(store, player); // Create the store popup window
@@ -261,7 +277,9 @@ public class Main {
 		Inventorypopup inventoryPopup = new Inventorypopup(player); // Create the inventory popup window
 		inventoryPopup.setVisible(true); // Display the inventory popup window
 	}
-	
+	/**
+     * Starts the store where players can buy supplies.
+     */
 	private void startStore() {
 
 		JLabel title = new JLabel("General Store");
@@ -436,7 +454,9 @@ public class Main {
 		
     }
 
-
+ /**
+     * The main game loop controlling the game flow and events.
+     */
     private void gameLoop() {
 
 		JLabel waggon = new JLabel("Wagon");
@@ -528,17 +548,20 @@ public class Main {
 
                 if(waggonOnScreen == true){
                     waggonTime++;
-					if(waggonTime > 90){
+					if(waggonTime > 120){
 						traveling = false;
 						int response = JOptionPane.showOptionDialog(frmOregonTrail, "You have reached a broken wagon! ", "Wagon", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{"Leave", "Talk"}, null);
 						if(response == 0){
 							JOptionPane.showMessageDialog(frmOregonTrail, "You have left the wagon!");
                                 traveling = true;
+								waggonTime = 0;
+								waggonOnScreen = false;
 						}
 						if(response == 1){
-							JOptionPane.showMessageDialog(frmOregonTrail, "You talk to a traveling woman. \n She tells you that you should talk to people at forts because their advice will help you get across the rivers");
+							JOptionPane.showMessageDialog(frmOregonTrail, "You talk to a traveling woman. \n She says, make sure you talk to all the people at forts, they give great advice!");
 							traveling = true;
                             waggonTime = 0;
+							waggonOnScreen = false;
 						}
 					}
 				}
