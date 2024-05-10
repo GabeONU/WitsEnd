@@ -1,5 +1,5 @@
 /**
- * Description: 
+ * Description: This class reads items from a CSV file and creates Item objects from the data.
  * Author: Julian Calvelage, Enzo Bordogna and Gabe Parry
  * Date: 5/9/2024
  */

@@ -1,5 +1,5 @@
 /**
- * Description: 
+ * Description: Each Item object represents an item that can be bought or sold in a store within the game. It has properties such as name, price, weight, and price per pound. The class provides methods to retrieve these properties.
  * Author: Julian Calvelage, Enzo Bordogna and Gabe Parry
  * Date: 5/9/2024
  */

@@ -1,5 +1,5 @@
 /**
- * Description: 
+ * Description:  this class facilitates the creation of JLabel objects for use in a game or graphical application, allowing for both customized and randomly generated labels based on configurations provided in a CSV file.
  * Author: Julian Calvelage, Enzo Bordogna and Gabe Parry
  * Date: 5/9/2024
  */
