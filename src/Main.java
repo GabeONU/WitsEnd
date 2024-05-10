@@ -1,9 +1,13 @@
 /**
+ * Description: Main class of Oregon trail game that is based on the orignal, but with a woman driven narrative. Main class handles all of the gui.
+ * Author: Julian Calvelage, Enzo Bordogna and Gabe Parry
+ * Date: 5/9/2024
+ */
+
+/**
  * The Main class represents the main entry point of the Oregon Trail game application.
  * It initializes the game environment, GUI components, and controls the game loop.
  */
-
-
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -655,13 +659,13 @@ public class Main {
 				secondCount2++;
 				miliSecondCound2 = 0;
 				lblDays.setText("Number of Days: " + secondCount2);
-			}
+				}
 
 				miliSecondCound++;
 				if(miliSecondCound>= 24){
-					secondCount++;
-					miliSecondCound = 0;
-				
+                    secondCount++;
+                    miliSecondCound = 0;
+
 					wagon.consumeFood();
 					lblFood.setText("Pounds of Food: " + wagon.getFoodPounds());
 
@@ -737,14 +741,14 @@ public class Main {
             }
 		}
 	
-	});
+        });
 
         timer.start(); // Start the timer
-	}
+    }
 
-		public static void setFoodConsumeIndex(int foodConsumeIndex) {
-			Main.foodConsumeIndex = foodConsumeIndex;
-		}
+	public static void setFoodConsumeIndex(int foodConsumeIndex) {
+		Main.foodConsumeIndex = foodConsumeIndex;
+	}
 	} // Add this closing brace to complete the class body
 
 
