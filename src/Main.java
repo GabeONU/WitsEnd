@@ -1,4 +1,11 @@
 /**
+ * Description: This is the main class that handles all gui components. It also controls the game loop and events that happen in the game.
+ * Author: Julian Calvelage, Enzo Bordogna and Gabe Parry
+ * Date: 5/9/2024
+ */
+
+
+/**
  * The Main class represents the main entry point of the Oregon Trail game application.
  * It initializes the game environment, GUI components, and controls the game loop.
  */
