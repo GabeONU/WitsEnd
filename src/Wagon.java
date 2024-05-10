@@ -72,7 +72,7 @@ public class Wagon {
     
         // Method to simulate consuming food for a specified number of hours
         public void consumeFood() {
-            int consumptionAmount = this.numPeople * this.consumptionRate * 5; // Multiply by 5
+            int consumptionAmount = this.numPeople * this.consumptionRate; // Multiply by 5
             if (this.foodPounds >= consumptionAmount) {
                 this.foodPounds -= consumptionAmount;
             } else {
