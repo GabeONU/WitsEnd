@@ -1,5 +1,8 @@
 /**
- * Description: 
+ * Description:The `Store` class manages an in-game store, allowing players to browse available items and make purchases. 
+ * It initializes with items from a CSV file and provides methods for retrieving items and processing purchases. 
+ * If a purchase is successful, a confirmation message is displayed; otherwise, an alert notifies the player of insufficient funds. 
+ * This class streamlines player interactions with in-game stores, enhancing gameplay immersion.
  * Author: Julian Calvelage, Enzo Bordogna and Gabe Parry
  * Date: 5/9/2024
  */

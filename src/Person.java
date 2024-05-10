@@ -1,5 +1,8 @@
 /**
- * Description: 
+ * Description:The `Person` class manages an individual's inventory and finances within the game. 
+ * It maintains a list of items in the inventory and tracks the person's money. Methods enable accessing the inventory and money, 
+ * as well as modifying the money balance and managing inventory items. This class provides essential functionality for 
+ * handling an individual's possessions and wealth in the game environment. 
  * Author: Julian Calvelage, Enzo Bordogna and Gabe Parry
  * Date: 5/9/2024
  */

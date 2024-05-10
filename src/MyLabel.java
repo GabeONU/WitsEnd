@@ -1,5 +1,9 @@
 /**
- * Description: 
+ * Description:The `MyLabel` class extends `JLabel` and customizes its behavior for specific use cases. 
+ * It provides constructors to set initial text and overrides the `setText` method to update the label's text. Additionally, 
+ * it overrides the `repaint` and `revalidate` methods to prevent unnecessary component updates, 
+ * making it suitable for specialized label functionalities. This class offers a tailored 
+ * approach to label manipulation within Swing applications. 
  * Author: Julian Calvelage, Enzo Bordogna and Gabe Parry
  * Date: 5/9/2024
  */

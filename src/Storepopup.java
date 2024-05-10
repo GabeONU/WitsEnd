@@ -1,5 +1,9 @@
 /**
- * Description: 
+ * Description: The `Storepopup` class creates a popup window representing an in-game store interface. 
+ * It enables players to browse items, purchase them, and exit the store. The window displays the store's name, 
+ * the player's current money, and a list of available items with buy buttons and quantity fields. 
+ * Purchasing an item updates the player's inventory and money balance. Exiting the window toggles the game's traveling status. 
+ * This class simplifies in-game store interactions within the game environment.
  * Author: Julian Calvelage, Enzo Bordogna and Gabe Parry
  * Date: 5/9/2024
  */

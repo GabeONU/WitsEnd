@@ -1,5 +1,10 @@
 /**
- * Description: 
+ * Description:The `sprite` class represents a sprite object in a graphical environment, 
+ * storing its position and image data. It includes attributes for the sprite's x, y, and z-coordinate positions, 
+ * as well as its width, height, and file path to the image. 
+ * The class provides methods to set the ImageIcon for displaying the sprite and to load and 
+ * scale the sprite image from the specified file path with the given dimensions. This class encapsulates the functionality necessary 
+ * to manage and display sprites within a graphical application.
  * Author: Julian Calvelage, Enzo Bordogna and Gabe Parry
  * Date: 5/9/2024
  */

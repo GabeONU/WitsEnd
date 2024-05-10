@@ -1,5 +1,7 @@
 /**
- * Description: 
+ * Description: The `Wagon` class models a wagon for simulated journeys or games, handling attributes like capacity,
+ * food storage, and consumption rates. It offers methods for adding food, setting consumption rates and speed modifiers, 
+ * and simulating food consumption. This class facilitates resource management and journey dynamics in game development contexts.
  * Author: Julian Calvelage, Enzo Bordogna and Gabe Parry
  * Date: 5/9/2024
  */
