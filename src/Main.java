@@ -703,5 +703,5 @@ public class Main {
 		Main.foodConsumeIndex = foodConsumeIndex;
 	}
 }
-}
+
 
