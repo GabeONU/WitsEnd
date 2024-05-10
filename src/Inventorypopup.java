@@ -1,5 +1,5 @@
 /**
- * Description: 
+ * Description: Creates a popup window to show the player's inventory, allowing them to view their items and money.
  * Author: Julian Calvelage, Enzo Bordogna and Gabe Parry
  * Date: 5/9/2024
  */
