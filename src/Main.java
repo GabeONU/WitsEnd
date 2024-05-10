@@ -21,12 +21,14 @@ public class Main {
 	private static Wagon wagon = new Wagon(5);
 	private static boolean riverOnScreen = false;
 	private static int riverTime = 0;
+    public static int waggonTime = 0;
 	private static int riverSpeed = 0;
 	private static boolean riverCrossed = false;
 	private static JLabel ox;	
 	private static boolean fortOnScreen = false;
 	private static int fortTime = 0;
 	private static boolean skipTree = false;
+    private static boolean waggonOnScreen = false;
 
 	public static boolean traveling = true;
 
@@ -438,7 +440,8 @@ public class Main {
 
 
 		
-	}
+    }
+
 
     private void gameLoop() {
 
@@ -521,6 +524,29 @@ public class Main {
 						JOptionPane.showMessageDialog(frmOregonTrail, "You got a minnor fever! \n But you recovered!");
 					}
 					eventHappened = true;
+
+                    if(randomEvent == 4) {
+                        skipTree = true;
+                        allLabels.add(lblMake.makeLabel("src/imgs/wagon.png", "mid", 64, 64));
+                        waggonOnScreen = true;
+                    }
+                }
+
+                if(waggonOnScreen == true){
+                    waggonTime++;
+					if(waggonTime > 90){
+						traveling = false;
+						int response = JOptionPane.showOptionDialog(frmOregonTrail, "You have reached a broken wagon! ", "Wagon", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{"Leave", "Talk"}, null);
+						if(response == 0){
+							JOptionPane.showMessageDialog(frmOregonTrail, "You have left the wagon!");
+                                traveling = true;
+						}
+						if(response == 1){
+							JOptionPane.showMessageDialog(frmOregonTrail, "You talk to a traveling woman. \n She tells you that you should talk to people at forts because their advice will help you get across the rivers");
+							traveling = true;
+                            waggonTime = 0;
+						}
+					}
 				}
 
 				if(secondCount > 25 && flag == false){
@@ -676,5 +702,6 @@ public class Main {
 	public static void setFoodConsumeIndex(int foodConsumeIndex) {
 		Main.foodConsumeIndex = foodConsumeIndex;
 	}
+}
 }
 
