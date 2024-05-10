@@ -1,4 +1,10 @@
 /**
+ * Description: 
+ * Author: Julian Calvelage, Enzo Bordogna and Gabe Parry
+ * Date: 5/9/2024
+ */
+
+/**
  * The Person class represents a player in the game, managing their inventory and money.
  */
 import java.util.ArrayList;

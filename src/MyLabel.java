@@ -1,4 +1,10 @@
 /**
+ * Description: 
+ * Author: Julian Calvelage, Enzo Bordogna and Gabe Parry
+ * Date: 5/9/2024
+ */
+
+/**
  * The MyLabel class extends the JLabel class and provides custom label functionality.
  */
 import javax.swing.JLabel;

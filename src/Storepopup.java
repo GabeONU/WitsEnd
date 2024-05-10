@@ -1,4 +1,10 @@
 /**
+ * Description: 
+ * Author: Julian Calvelage, Enzo Bordogna and Gabe Parry
+ * Date: 5/9/2024
+ */
+
+/**
  * The Storepopup class represents a graphical user interface (GUI) window for interacting with a store.
  */
 import javax.swing.*;

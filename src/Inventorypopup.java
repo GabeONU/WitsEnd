@@ -1,3 +1,9 @@
+/**
+ * Description: 
+ * Author: Julian Calvelage, Enzo Bordogna and Gabe Parry
+ * Date: 5/9/2024
+ */
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;

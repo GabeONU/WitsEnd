@@ -1,4 +1,10 @@
 /**
+ * Description: 
+ * Author: Julian Calvelage, Enzo Bordogna and Gabe Parry
+ * Date: 5/9/2024
+ */
+
+/**
  * The Store class represents a store where players can purchase items.
  */
 import java.util.ArrayList;

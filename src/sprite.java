@@ -1,4 +1,10 @@
 /**
+ * Description: 
+ * Author: Julian Calvelage, Enzo Bordogna and Gabe Parry
+ * Date: 5/9/2024
+ */
+
+/**
  * The Sprite class represents a sprite with position and image properties.
  */
 import java.awt.Image;

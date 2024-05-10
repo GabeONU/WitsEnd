@@ -1,3 +1,9 @@
+/**
+ * Description: 
+ * Author: Julian Calvelage, Enzo Bordogna and Gabe Parry
+ * Date: 5/9/2024
+ */
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
